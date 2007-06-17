@@ -3,7 +3,7 @@ package DBIx::Class::InflateColumn::IP;
 use warnings;
 use strict;
 
-our $VERSION = '0.02000';
+our $VERSION = '0.02001';
 
 use base qw/DBIx::Class/;
 __PACKAGE__->mk_classdata(ip_format => 'addr');
@@ -46,6 +46,11 @@ Then you can treat the specified column as a NetAddr::IP object.
     print 'IP address: ', $host->ip_address->addr;
     print 'Address type: ', $host->ip_address->iptype;
 
+DBIx::Class::InflateColumn::IP supports a limited amount of
+auto-detection of the format based on the column type. If the type
+begins with C<int>, it's assumed to be numeric, while C<inet> and
+C<cidr> (as used by e.g. PostgreSQL) are assumed to be C<cidr> format.
+
 =head1 METHODS
 
 =head2 ip_class
@@ -86,8 +91,9 @@ sub register_column {
 
     return unless defined $info->{'is_ip'};
 
-    my $ip_format = $info->{ip_format} || $self->ip_format || 'addr';
-    my $ip_class = $info->{ip_class} || $self->ip_class || 'NetAddr::IPf';
+    my $ip_format = $info->{ip_format} || _default_format($info->{data_type})
+        || $self->ip_format || 'addr';
+    my $ip_class = $info->{ip_class} || $self->ip_class || 'NetAddr::IP';
 
     eval "use $ip_class";
     $self->throw_exception("Error loading $ip_class: $@") if $@;
@@ -102,9 +108,22 @@ sub register_column {
     );
 }
 
+my @format_map = (
+  { type => qr/^int/i,            format => 'numeric' },
+  { type => qr{^(?:inet|cidr)$}i, format => 'cidr' },
+);
+
+sub _default_format {
+    my ($type) = @_;
+
+    for my $match (@format_map) {
+        return $match->{format} if $type =~ $match->{type};
+    }
+}
+
 =head1 AUTHOR
 
-Dagfinn Ilmari MannsÃ¥ker, C<< <ilmari at ilmari.org> >>
+Dagfinn Ilmari Mannsåker, C<< <ilmari at ilmari.org> >>
 
 =head1 BUGS
 
@@ -148,7 +167,7 @@ L<DBIx::Class>, L<NetAddr::IP>
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2007 Dagfinn Ilmari MannsÃ¥ker, all rights reserved.
+Copyright 2007 Dagfinn Ilmari Mannsåker, all rights reserved.
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

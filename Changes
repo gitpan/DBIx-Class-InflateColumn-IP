@@ -1,5 +1,8 @@
 Revision history for DBIx::Class::InflateColumn::IP
 
+0.02001 Sun Jun 17 20:27:34 2007
+       - Initial version of format autodetection, based solely on column type.
+
 0.02000 Thu May 24 11:28:40 2007
        - First release uploaded to CPAN.
        - Added configuration options for format and class.

@@ -13,7 +13,6 @@ inc/Module/Install/WriteAll.pm
 lib/DBIx/Class/InflateColumn/IP.pm
 Makefile.PL
 MANIFEST
-MANIFEST.SKIP
 META.yml			# Will be created by "make dist"
 README
 t/00-load.t

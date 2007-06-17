@@ -11,7 +11,7 @@ requires 'DBIx::Class'  => 0.07005;
 requires 'NetAddr::IP';
 
 tests 't/*.t';
-clean_files 'DBIx-Class-InflateColumn-IP-* t/var';
+clean_files 'DBIx-Class-InflateColumn-IP-* t/var README';
 
 eval {
     system 'pod2text lib/DBIx/Class/InflateColumn/IP.pm > README';

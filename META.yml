@@ -1,8 +1,8 @@
 --- 
 abstract: Auto-create NetAddr::IP objects from columns.
-author: "Dagfinn Ilmari Manns\xC3\xA5ker, C<< <ilmari at ilmari.org> >>"
+author: "Dagfinn Ilmari Manns\xE5ker, C<< <ilmari at ilmari.org> >>"
 distribution_type: module
-generated_by: Module::Install version 0.65
+generated_by: Module::Install version 0.67
 license: perl
 meta-spec: 
   url: http://module-build.sourceforge.net/META-spec-v1.3.html
@@ -17,4 +17,4 @@ requires:
   NetAddr::IP: 0
   perl: 5.6.1
 tests: t/*.t
-version: 0.02000
+version: 0.02001

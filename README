@@ -34,6 +34,11 @@ SYNOPSIS
         print 'IP address: ', $host->ip_address->addr;
         print 'Address type: ', $host->ip_address->iptype;
 
+    DBIx::Class::InflateColumn::IP supports a limited amount of
+    auto-detection of the format based on the column type. If the type
+    begins with "int", it's assumed to be numeric, while "inet" and "cidr"
+    (as used by e.g. PostgreSQL) are assumed to be "cidr" format.
+
 METHODS
   ip_class
     Arguments: $class
@@ -55,7 +60,7 @@ METHODS
     directly by end users.
 
 AUTHOR
-    Dagfinn Ilmari MannsÃ¥ker, "<ilmari at ilmari.org>"
+    Dagfinn Ilmari Mannsåker, "<ilmari at ilmari.org>"
 
 BUGS
     Please report any bugs or feature requests to
@@ -89,7 +94,7 @@ SEE ALSO
     DBIx::Class, NetAddr::IP
 
 COPYRIGHT & LICENSE
-    Copyright 2007 Dagfinn Ilmari MannsÃ¥ker, all rights reserved.
+    Copyright 2007 Dagfinn Ilmari Mannsåker, all rights reserved.
 
     This program is free software; you can redistribute it and/or modify it
     under the same terms as Perl itself.
