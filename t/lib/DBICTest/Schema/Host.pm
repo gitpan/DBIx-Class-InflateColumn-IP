@@ -12,7 +12,7 @@ __PACKAGE__->add_columns(
         is_nullable => 0,
     },
     address => {
-        data_type   => 'integer',
+        data_type   => 'bigint',
         is_nullable => 0,
         is_ip       => 1,
     }

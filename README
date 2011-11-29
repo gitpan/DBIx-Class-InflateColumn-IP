@@ -10,7 +10,7 @@ SYNOPSIS
         __PACKAGE__->load_components(qw/InflateColumn::IP Core/);
         __PACKAGE__->add_columns(
             ip_address => {
-                data_type => 'integer',
+                data_type => 'bigint',
                 is_nullable => 0,
                 is_ip => 1,
                 ip_format => 'numeric',
@@ -36,8 +36,8 @@ SYNOPSIS
 
     DBIx::Class::InflateColumn::IP supports a limited amount of
     auto-detection of the format based on the column type. If the type
-    begins with "int", it's assumed to be numeric, while "inet" and "cidr"
-    (as used by e.g. PostgreSQL) are assumed to be "cidr" format.
+    begins with "int" or "bigint", it's assumed to be numeric, while "inet"
+    and "cidr" (as used by e.g. PostgreSQL) are assumed to be "cidr" format.
 
 METHODS
   ip_class
@@ -77,17 +77,21 @@ SUPPORT
 
     You can also look for information at:
 
-    * AnnoCPAN: Annotated CPAN documentation
+    *   AnnoCPAN: Annotated CPAN documentation
+
         <http://annocpan.org/dist/DBIx-Class-InflateColumn-IP>
 
-    * CPAN Ratings
+    *   CPAN Ratings
+
         <http://cpanratings.perl.org/d/DBIx-Class-InflateColumn-IP>
 
-    * RT: CPAN's request tracker
+    *   RT: CPAN's request tracker
+
         <http://rt.cpan.org/NoAuth/Bugs.html?Dist=DBIx-Class-InflateColumn-I
         P>
 
-    * Search CPAN
+    *   Search CPAN
+
         <http://search.cpan.org/dist/DBIx-Class-InflateColumn-IP>
 
 SEE ALSO

@@ -1,5 +1,9 @@
 Revision history for DBIx::Class::InflateColumn::IP
 
+0.02002
+       - Use numeric format for bigint columns.
+       - Use bigint column in test to cope with DBD::SQLite bind type changes.
+
 0.02001 Sun Jun 17 20:27:34 2007
        - Initial version of format autodetection, based solely on column type.
 

@@ -3,7 +3,7 @@ package DBIx::Class::InflateColumn::IP;
 use warnings;
 use strict;
 
-our $VERSION = '0.02001';
+our $VERSION = '0.02002';
 
 use base qw/DBIx::Class/;
 __PACKAGE__->mk_classdata(ip_format => 'addr');
@@ -22,7 +22,7 @@ appropriate format.
     __PACKAGE__->load_components(qw/InflateColumn::IP Core/);
     __PACKAGE__->add_columns(
         ip_address => {
-            data_type => 'integer',
+            data_type => 'bigint',
             is_nullable => 0,
             is_ip => 1,
             ip_format => 'numeric',
@@ -48,8 +48,9 @@ Then you can treat the specified column as a NetAddr::IP object.
 
 DBIx::Class::InflateColumn::IP supports a limited amount of
 auto-detection of the format based on the column type. If the type
-begins with C<int>, it's assumed to be numeric, while C<inet> and
-C<cidr> (as used by e.g. PostgreSQL) are assumed to be C<cidr> format.
+begins with C<int> or C<bigint>, it's assumed to be numeric, while
+C<inet> and C<cidr> (as used by e.g. PostgreSQL) are assumed to be
+C<cidr> format.
 
 =head1 METHODS
 
@@ -109,7 +110,7 @@ sub register_column {
 }
 
 my @format_map = (
-  { type => qr/^int/i,            format => 'numeric' },
+  { type => qr/^(?:big)?int/i, format => 'numeric' },
   { type => qr{^(?:inet|cidr)$}i, format => 'cidr' },
 );
 

@@ -13,8 +13,8 @@ my $localhost = $host_rs->find('localhost');
 isa_ok($localhost->address, 'NetAddr::IP', 'numeric address inflated to right class');
 is($localhost->address, '127.0.0.1/32', 'numeric address correctly inflated');
 
-TODO: {
-    local $TODO = "DBIx::Class doesn't support find by object yet";
+SKIP: {
+    skip "DBIx::Class doesn't support find by object yet" => 1;
 
     $localhost = $host_rs->find(NetAddr::IP->new('127.0.0.1'), { key => 'address' });
 
