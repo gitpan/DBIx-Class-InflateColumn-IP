@@ -1,13 +1,14 @@
 ---
 abstract: 'Auto-create NetAddr::IP objects from columns.'
 author:
-  - 'Dagfinn Ilmari Mannsåker, C<< <ilmari at ilmari.org> >>'
+  - 'Dagfinn Ilmari MannsÃ¥ker, C<< <ilmari at ilmari.org> >>'
 build_requires:
-  ExtUtils::MakeMaker: 6.42
+  ExtUtils::MakeMaker: 6.59
 configure_requires:
-  ExtUtils::MakeMaker: 6.42
+  ExtUtils::MakeMaker: 6.59
 distribution_type: module
-generated_by: 'Module::Install version 1.01'
+dynamic_config: 1
+generated_by: 'Module::Install version 1.06'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -20,7 +21,8 @@ no_index:
 requires:
   DBIx::Class: 0.07005
   NetAddr::IP: 0
-  perl: 5.6.1
+  perl: 5.8.1
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.02002
+  repository: git://git.shadowcat.co.uk/dbsrgits/DBIx-Class-InflateColumn-IP.git
+version: 0.02003

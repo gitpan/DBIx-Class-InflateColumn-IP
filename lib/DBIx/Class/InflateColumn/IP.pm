@@ -2,12 +2,15 @@ package DBIx::Class::InflateColumn::IP;
 
 use warnings;
 use strict;
+use 5.008001;
 
-our $VERSION = '0.02002';
+our $VERSION = '0.02003';
 
 use base qw/DBIx::Class/;
 __PACKAGE__->mk_classdata(ip_format => 'addr');
 __PACKAGE__->mk_classdata(ip_class  => 'NetAddr::IP');
+
+=encoding utf-8
 
 =head1 NAME
 
@@ -124,7 +127,7 @@ sub _default_format {
 
 =head1 AUTHOR
 
-Dagfinn Ilmari Mannsåker, C<< <ilmari at ilmari.org> >>
+Dagfinn Ilmari MannsÃ¥ker, C<< <ilmari at ilmari.org> >>
 
 =head1 BUGS
 
@@ -168,7 +171,7 @@ L<DBIx::Class>, L<NetAddr::IP>
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2007 Dagfinn Ilmari Mannsåker, all rights reserved.
+Copyright 2007 Dagfinn Ilmari MannsÃ¥ker, all rights reserved.
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

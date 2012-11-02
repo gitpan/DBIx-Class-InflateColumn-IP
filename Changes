@@ -1,5 +1,10 @@
 Revision history for DBIx::Class::InflateColumn::IP
 
+0.02003 Fri Nov  2 11:52:11 GMT 2012
+       - Perl 5.8.1 is now required (as it is for DBIC itelf).
+       - Use and declare UTF-8 encoding in POD
+       - Add repository metadata
+
 0.02002
        - Use numeric format for bigint columns.
        - Use bigint column in test to cope with DBD::SQLite bind type changes.

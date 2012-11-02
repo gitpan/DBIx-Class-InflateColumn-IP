@@ -60,7 +60,7 @@ METHODS
     directly by end users.
 
 AUTHOR
-    Dagfinn Ilmari Mannsåker, "<ilmari at ilmari.org>"
+    Dagfinn Ilmari MannsÃ¥ker, "<ilmari at ilmari.org>"
 
 BUGS
     Please report any bugs or feature requests to
@@ -98,7 +98,7 @@ SEE ALSO
     DBIx::Class, NetAddr::IP
 
 COPYRIGHT & LICENSE
-    Copyright 2007 Dagfinn Ilmari Mannsåker, all rights reserved.
+    Copyright 2007 Dagfinn Ilmari MannsÃ¥ker, all rights reserved.
 
     This program is free software; you can redistribute it and/or modify it
     under the same terms as Perl itself.
